@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Lab 1</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="Main.js"></script>
+</head>
+
+<body>
+    <table class="tg">
+        <thead>
+          <tr>
+            <th rowspan="2">Можливі альтернативні рішення</th>
+            <th colspan="3">Можливі стани зовнішнього середовища</th>
+            <th colspan="4">Критерії</th>
+          </tr>
+          <tr>
+            <td>Конкуренція на тому ж рівні</td>
+            <td>Конкуренція трішки посилилась</td>
+            <td>Конкуренція різко посилилась</td>
+            <td>Лапласа</td>
+            <td>Вальда</td>
+            <td>Гурвіца</td>
+            <td>Бейеса</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Продовжити роботу в звичному режимі</td>
+            <td><textarea id="00input">100</textarea></td>
+            <td><textarea id="01input">70</textarea></td>
+            <td><textarea id="02input">50</textarea></td>
+            <td id="l0"></td>
+            <td id="v0"></td>
+            <td id="g0"></td>
+            <td id="b0"></td>
+          </tr>
+          <tr>
+            <td>Активувати рекламну діяльність</td>
+            <td><textarea id="10input">90</textarea></td>
+            <td><textarea id="11input">90</textarea></td>
+            <td><textarea id="12input">60</textarea></td>
+            <td id="l1"></td>
+            <td id="v1"></td>
+            <td id="g1"></td>
+            <td id="b1"></td>
+          </tr>
+          <tr>
+            <td>Активувати рекламу і знизити ціну</td>
+            <td><textarea id="20input">50</textarea></td>
+            <td><textarea id="21input">60</textarea></td>
+            <td><textarea id="22input">70</textarea></td>
+            <td id="l2"></td>
+            <td id="v2"></td>
+            <td id="g2"></td>
+            <td id="b2"></td>
+          </tr>
+        </tbody>
+        </table>
+        <button id="start" onclick="starter()">Start</button>
+</body>
+</html>
