@@ -1,0 +1,32 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+textarea{
+    width: 70px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#start{
+    background-color: green;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+body{
+    font-size: 20px;
+}
+
+td{
+    text-align: center;
+    padding: 5px;
+}
+
+#all{
+    width: 50%;
+}

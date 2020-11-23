@@ -1,0 +1,3638 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Lab 2</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Main.js"></script>
+  </head>
+
+  <body>
+    <table class="tg">
+      <thead>
+        <tr>
+          <th colspan="5">А</th>
+          <th colspan="5">Б</th>
+          <th colspan="4">В</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>M1</td>
+          <td>D1</td>
+          <td>P1</td>
+          <td>D2</td>
+          <td>P2</td>
+          <td>M2</td>
+          <td>D1</td>
+          <td>P1</td>
+          <td>D2</td>
+          <td>P2</td>
+          <td>P3</td>
+          <td>P4</td>
+          <td>P1</td>
+          <td>P2</td>
+        </tr>
+        <tr>
+          <td><textarea id="mAinput">750</textarea></td>
+          <td><textarea id="dA0input">270</textarea></td>
+          <td><textarea id="pA0input">0.8</textarea></td>
+          <td><textarea id="dA1input">-60</textarea></td>
+          <td><textarea id="pA1input">0.2</textarea></td>
+          <td><textarea id="mBinput">300</textarea></td>
+          <td><textarea id="dB0input">210</textarea></td>
+          <td><textarea id="pB0input">0.8</textarea></td>
+          <td><textarea id="dB1input">-50</textarea></td>
+          <td><textarea id="pB1input">0.2</textarea></td>
+          <td><textarea id="pC0input">0.8</textarea></td>
+          <td><textarea id="pC1input">0.2</textarea></td>
+          <td><textarea id="pC2input">0.9</textarea></td>
+          <td><textarea id="pC3input">0.1</textarea></td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="start" onclick="starter()">Start</button>
+
+    <p id="resultPhrase">Result :</p>
+
+    <div
+      class="geDiagramContainer"
+      style="
+        border: 1px solid transparent;
+        position: relative;
+        touch-action: none;
+        cursor: pointer;
+        overflow: hidden;
+        margin-top: 28px;
+        width: 891px;
+        height: 490px;
+      "
+      data-mxgraph='{"highlight":"#0000ff","nav":true,"zoom":0.3,"resize":true,"toolbar":"zoom layers lightbox","edit":"_blank","xml":"<mxfile host=\"app.diagrams.net\" modified=\"2020-11-23T19:47:13.759Z\" agent=\"5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.41\" etag=\"0sqSHFK31MzuDb3DZvCG\" version=\"13.10.1\" type=\"device\">
+          <diagram id=\"G-QdtH-oZu2uwU9zgxJr\" name=\"Page-1\">
+          7Z1db6M4FIZ/TS4T2cZguGzTmV2tNNqVerGdvUMJTdCmoaK0TffXL18m4EMK5cMmgztSBpzgJOd5fWwO55CFsX46/Ra6z/sfwdY7LAjanhbG3YIQik0S/5e0fGQthmWwrGUX+tusDZ8b7v3/vLwR5a2v/tZ7qbwwCoJD5D9XGzfB8ehtokqbG4bBe/Vlj8Gh+q7P7s4DDfcb9wBb//a30T5rtQk7t//u+bs9f2dsOdkzTy5/cf5NXvbuNngvNRnfFsY6DIIo23o6rb1DYj1ul+y47xeeLT5Y6B2jNgdQ9Ie5O709rB9/sj9P/7w8Pz7Yy7yXN/fwmn/h/MNGH9wCYfB63HpJJ2hh3L7v/ci7f3Y3ybPvMfS4bR89HeI9HG8+BsfoPj+W9+2FkXe6+KFxYYpYRF7w5EXhR/wSrqDceFw+KN9/P7Ow8qZ9CQNvc3P6u6Ljs4HijdxGX7FXC4PF3cTq9JqN5b48Z5J99E+JgQe3HrOr5ltiBu1n19jPHs1+5JrtRxzV5jOu2XzMVG0+2sJ8x+1NMm/Ee8fg6FVN5p386KG0/TPxiisz37s75U4y3fngO8f4oz+Ud0pHJbvnw9I9flwNDW8LJiuBRfxVgtdw4zW7/MgNd17UOFQh3BI8swYebwu9gxv5b9XPW0c0f4e/Aj/+JoV2TFTVjoUEUWTfMz+qPO2JHZnVjop93lFmCNBRKrDia/fQnNlXc1w/uKwfPI56mlWhUhQGERyKc62isIYShRyn0iwLQ+tiCF2wX00Xk/IXsUw7CoMysSfJwrD7CqNu5fLpumXU9YcqRVBBEbSjHpqVNbYgnDEE0bCUHU0SSjWBkQDT6OolHEtQBdDXyKrgX2TgxeZc5w/Is6MwMBLmD3COO7Yw2sStPhNGJ8DXz42ihp7G5kbmza3r/FwDTrYrbhOq+2XI1dhbXCH3QMcko+sbJrxudMOBk3z2bPSd5KStiVWxtgUHO9hKl0ieF42+86LUhe5U5lPadTpt1M3YuGc1mQ6GDXhk0NPY3GY1kzY6xc7cpLvXvhetroobNLe4cOkMDotXIsYG1/fC0nWDo+KZQndPKTnAb/S+8jO3tWvni3yim7Ykx+KM3tdy5rh2dbomgDTqZmzcfa/UzBMb8Migp5G58aXyPLkBp9iZm2z3SvuGBq6KGxwmXUM6oCdbctiV1pzkx/OWkz7emunjbfpop483pe3Yx6J0g6WP2XZ24Lf0kQINRN4pqoJ/icLgX28dHILwLIxH/3AQmtyDvzvGu5tYAl7cfptkyfob93CTP/Hkb7fJ29Rm4Fbz6VOxZVUP9MIc3SsH1xBTwIvwbkmfhmVBgYr0B8vCpTVBgYTzuoTutsT8bhFbwl5r5l2ZF75GHfKaeEI+tPHCsXJaZ8C3nGgMHqePJAeviaag1A/imkDD2VnbnFwxFmsH7vfSC76XDoQT9jwwYyReQTPUg64JTGjQQ4PG6l10TVQi4VxGxyrozpwJn6dTp01QyatnkzddadBZg6V+QNfEIxLQdyWgrGnJpQd0k+euKRWUy5l7FM15TM5GTUWtZM41WS9nztkplFFaT2vH3Qm0bagGbbVJb5pM8W8ST6qOFAINKLX612oTGJyS/UjFfkWEVpn9+ibh1F2i5NtyC05sWm97WTFb4XTeYvbKKf2Z1R5bR3Atod+zE5MUwrV6F9hPrH7RUhvcF4EaplMVSlelFLMZT3eQfJHG6l0VP5l6RtW+xLJXxKaEYUIZRfw0nnsWE68YNhmxmUlMhwdzensWQ7zDzth66V0wP6FyR7VOBQST7a5piqAKFuTNja2KwcrlJ1LuqFoZYnW0Ncx0Q6gw3TDJl5atvilXV5UTMB5HJmamN3Q8NtZZpVY1u9vOHGU7bj78ZwIOmLtrchXsSXJhAOtbYnfd4KgzliM1lDpSRnpi/eWzz5O/CjFHlEJHJRhCv7b9ab9jC6F3jG8OuekAGsYYrVDpr6savqiysdUwq/K98agy62sdj411VtV9X/Wwnakq9tyzqvwDxnfwSFDFiLtcqH0DXNcNFWM6kgNGtlIHfCHXTlc69MnYYPTCWbayjA12IdVOVzoMxlwsN1SepWPXhLZ0vnTfZBhD4IyVj237Qtqd5tyPs7D8qkkak8yZ1HPWabRDjmda88M+kjlfqD7VnIcczxhR5aBbBLWU/uYVrKDnJRuqfvXKHiRg9LnOpnta2iKtsvWJqJgULT1D04ZhomKozc49iT/3scTqlxsw4kMdzSdHobxK0oaRG8rvuTY7PBgLd7Vn6ldxMOIyYz4OBrMNUwyI+7ISIOzM9bYOAJD6akIHhjWKn96bHx8iZNwtiXIP58B4xBIjUyPiQ0g5IBhIYBpPcVGmpopRMh94/r80NaBziqNyQDDaoOnw61vKz4AcGEAofg1gdnyI2eIXwiXzgQGEpTPbCAIAZPLfAFcHCIYQTKr5TOYCvgNDCEtztqdAABBWf6syzGmU5yBqr+YaRhDDpOpvVYMRDCOgK+WT7fO3XxDDwcm/uH2IBR684+MEhhcMMWh4re7iqDw6hBGMPmh2bdiZygMTGMHIBFo5ml1zVskEJryaoIVm1yLziym/5IERDGmgFdbsGtlNYa0Cwx2aXasMajSBxQoMhaAV0fCazxKw8jRKjGCcRMNrdctg5UlmGMMAimbXhh0bse4k3g2DICrne8bm2P8Itl7yiv8B</diagram>
+          </mxfile>
+          "}'
+    >
+      <svg
+        style="
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          height: 100%;
+          display: block;
+          min-width: 891px;
+          min-height: 490px;
+          background-color: transparent;
+          background-image: none;
+        "
+      >
+        <defs>
+          <filter id="dropShadow">
+            <feGaussianBlur
+              in="SourceAlpha"
+              stdDeviation="1.7"
+              result="blur"
+            ></feGaussianBlur>
+            <feOffset in="blur" dx="3" dy="3" result="offsetBlur"></feOffset>
+            <feFlood
+              flood-color="#3D4574"
+              flood-opacity="0.4"
+              result="offsetColor"
+            ></feFlood>
+            <feComposite
+              in="offsetColor"
+              in2="offsetBlur"
+              operator="in"
+              result="offsetBlur"
+            ></feComposite>
+            <feBlend in="SourceGraphic" in2="offsetBlur"></feBlend>
+          </filter>
+        </defs>
+        <g transformOrigin="0 0" transform="scale(0.3,0.3)translate(-32,358)">
+          <g></g>
+          <g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="40"
+                y="300"
+                width="60"
+                height="60"
+                fill="#ffffff"
+                stroke="#000000"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <ellipse
+                cx="820"
+                cy="-130"
+                rx="40"
+                ry="40"
+                fill="#ffffff"
+                stroke="#000000"
+                pointer-events="all"
+              ></ellipse>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <ellipse
+                cx="820"
+                cy="330"
+                rx="40"
+                ry="40"
+                fill="#ffffff"
+                stroke="#000000"
+                pointer-events="all"
+              ></ellipse>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <ellipse
+                cx="820"
+                cy="790"
+                rx="40"
+                ry="40"
+                fill="#ffffff"
+                stroke="#000000"
+                pointer-events="all"
+              ></ellipse>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 100 330 L 780 330"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 100 330 L 780 330"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 320 790 L 100 360"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 320 790 L 100 360"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 320 790 L 780 790"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 320 790 L 780 790"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 320 -130 L 780 -130"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 320 -130 L 780 -130"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 100 300 L 320 -130"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 100 300 L 320 -130"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 860 -130 L 960 -240"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 860 -130 L 960 -240"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 -20 L 860 -130"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 -20 L 860 -130"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 -20 L 1400 -20"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 -20 L 1400 -20"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 -240 L 1400 -240"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 -240 L 1400 -240"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1400 -210 L 1400 -270"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1400 -210 L 1400 -270"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1400 10 L 1400 -50"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1400 10 L 1400 -50"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 860 330 L 960 220"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 860 330 L 960 220"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 440 L 860 330"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 440 L 860 330"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 440 L 1400 440"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 440 L 1400 440"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 220 L 1400 220"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 220 L 1400 220"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1400 250 L 1400 190"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1400 250 L 1400 190"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1400 470 L 1400 410"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1400 470 L 1400 410"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 860 790 L 960 680"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 860 790 L 960 680"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 900 L 860 790"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 900 L 860 790"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 900 L 1400 900"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 900 L 1400 900"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 960 680 L 1400 680"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 960 680 L 1400 680"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1400 930 L 1400 870"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1400 930 L 1400 870"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="380"
+                y="-210"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="380"
+                y="-210"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                  y="-175"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      margin-left: 381px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Великий завод
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="380"
+                y="250"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="380"
+                y="250"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 285px;
+                      margin-left: 381px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Маленький завод
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="380"
+                y="710"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="380"
+                y="710"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 745px;
+                      margin-left: 381px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Відкласти
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="-310"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="-310"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                  y="-275"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Високий попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="150"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="150"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 185px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Високий попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="610"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="610"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 645px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Позитивна інф.
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="-90"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="-90"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                  y="-55"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Низький попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="370"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="370"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 405px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Низький попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="830"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="830"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 865px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Негативна інф.
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <ellipse
+                cx="2180"
+                cy="360"
+                rx="40"
+                ry="40"
+                fill="#ffffff"
+                stroke="#000000"
+                pointer-events="all"
+              ></ellipse>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <ellipse
+                cx="2182"
+                cy="1000"
+                rx="40"
+                ry="40"
+                fill="#ffffff"
+                stroke="#000000"
+                pointer-events="all"
+              ></ellipse>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1460 709 L 1680 1000"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1460 709 L 1680 1000"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1680 360 L 2140 360"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1680 360 L 2140 360"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1460 649 L 1680 360"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1460 649 L 1680 360"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2220 360 L 2320 250"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2220 360 L 2320 250"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2320 470 L 2220 360"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2320 470 L 2220 360"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2320 470 L 2760 470"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2320 470 L 2760 470"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2320 250 L 2760 250"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2320 250 L 2760 250"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2760 280 L 2760 220"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2760 280 L 2760 220"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2760 500 L 2760 440"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2760 500 L 2760 440"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2222 1000 L 2322 890"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2222 1000 L 2322 890"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2322 1110 L 2222 1000"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2322 1110 L 2222 1000"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2322 1110 L 2762 1110"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2322 1110 L 2762 1110"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2322 890 L 2762 890"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2322 890 L 2762 890"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2762 920 L 2762 860"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2762 920 L 2762 860"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 2762 1140 L 2762 1080"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 2762 1140 L 2762 1080"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1740"
+                y="280"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1740"
+                y="280"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 315px;
+                      margin-left: 1741px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Великий завод
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1760"
+                y="930"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1760"
+                y="930"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 965px;
+                      margin-left: 1761px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Маленький завод
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2360"
+                y="180"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2360"
+                y="180"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 215px;
+                      margin-left: 2361px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Високий попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2362"
+                y="820"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2362"
+                y="820"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 855px;
+                      margin-left: 2363px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Високий попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2360"
+                y="400"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2360"
+                y="400"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 435px;
+                      margin-left: 2361px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Низький попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2362"
+                y="1040"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2362"
+                y="1040"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 1075px;
+                      margin-left: 2363px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      >
+                        Низький попит
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1400"
+                y="649"
+                width="60"
+                height="60"
+                fill="#ffffff"
+                stroke="#000000"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <path
+                d="M 1680 1000 L 2140 1000"
+                fill="none"
+                stroke="white"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></path>
+              <path
+                d="M 1680 1000 L 2140 1000"
+                fill="none"
+                stroke="#000000"
+                stroke-miterlimit="10"
+                pointer-events="stroke"
+              ></path>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="550"
+                y="-120"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="550"
+                y="-120"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                  y="-85"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      margin-left: 551px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result00"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="550"
+                y="350"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="550"
+                y="350"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 385px;
+                      margin-left: 551px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result10"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1170"
+                y="700"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1170"
+                y="700"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 735px;
+                      margin-left: 1171px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result41"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1910"
+                y="1007"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1910"
+                y="1007"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 1042px;
+                      margin-left: 1911px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result30"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1910"
+                y="370"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1910"
+                y="370"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 405px;
+                      margin-left: 1911px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result20"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1220"
+                y="-200"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1220"
+                y="-200"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                  y="-165"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      margin-left: 1221px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result01"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1220"
+                y="30"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1220"
+                y="30"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 65px;
+                      margin-left: 1221px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result02"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1220"
+                y="260"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1220"
+                y="260"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 295px;
+                      margin-left: 1221px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result11"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1220"
+                y="490"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1220"
+                y="490"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 525px;
+                      margin-left: 1221px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result12"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1220"
+                y="950"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1220"
+                y="950"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 985px;
+                      margin-left: 1221px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result42"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2580"
+                y="290"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2580"
+                y="290"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 325px;
+                      margin-left: 2581px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result21"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2580"
+                y="514"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2580"
+                y="514"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 549px;
+                      margin-left: 2581px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result22"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2580"
+                y="930"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2580"
+                y="930"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 965px;
+                      margin-left: 2581px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result31"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2580"
+                y="1150"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2580"
+                y="1150"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 1185px;
+                      margin-left: 2581px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result32"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="550"
+                y="830"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="550"
+                y="830"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 865px;
+                      margin-left: 551px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="result40"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #000000;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="-350"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="-350"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                  y="-315"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k00"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="100"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="100"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 135px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k10"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="560"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="560"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 595px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k40"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2362"
+                y="130"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2362"
+                y="130"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 165px;
+                      margin-left: 2363px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k20"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2360"
+                y="770"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2360"
+                y="770"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 805px;
+                      margin-left: 2361px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k30"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2360"
+                y="350"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2360"
+                y="350"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 385px;
+                      margin-left: 2361px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k21"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="2360"
+                y="1000"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="2360"
+                y="1000"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 1035px;
+                      margin-left: 2361px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k31"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="-140"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="-140"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                  y="-105"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k01"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="320"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="320"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 355px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k11"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+            <g transform="translate(0.5,0.5)" style="visibility: visible">
+              <rect
+                x="1000"
+                y="780"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="white"
+                pointer-events="stroke"
+                visibility="hidden"
+                stroke-width="9"
+              ></rect>
+              <rect
+                x="1000"
+                y="780"
+                width="366"
+                height="70"
+                fill="none"
+                stroke="none"
+                pointer-events="all"
+              ></rect>
+            </g>
+            <g>
+              <g>
+                <foreignObject
+                  style="overflow: visible; text-align: left"
+                  pointer-events="none"
+                  width="100%"
+                  height="100%"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: unsafe center;
+                      justify-content: unsafe center;
+                      width: 364px;
+                      height: 1px;
+                      padding-top: 815px;
+                      margin-left: 1001px;
+                    "
+                  >
+                    <div
+                      style="
+                        box-sizing: border-box;
+                        font-size: 0;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        id="k41"
+                        style="
+                          display: inline-block;
+                          font-size: 40px;
+                          font-family: Helvetica;
+                          color: #919191;
+                          line-height: 1.2;
+                          pointer-events: all;
+                          font-weight: bold;
+                          white-space: normal;
+                          word-wrap: normal;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </foreignObject>
+              </g>
+            </g>
+          </g>
+          <g></g>
+          <g></g>
+        </g>
+      </svg>
+      <div
+        class="resize-sensor"
+        style="
+          position: absolute;
+          inset: 0px;
+          overflow: hidden;
+          z-index: -1;
+          visibility: hidden;
+        "
+      >
+        <div
+          class="resize-sensor-expand"
+          style="
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: -1;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              transition: all 0s ease 0s;
+              width: 100000px;
+              height: 100000px;
+            "
+          ></div>
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: -1;
+            visibility: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              left: 0;
+              top: 0;
+              transition: 0s;
+              width: 200%;
+              height: 200%;
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
