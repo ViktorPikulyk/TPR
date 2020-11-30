@@ -1,0 +1,58 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+.t1{
+    width: 80%;
+    height: 25px;
+    font-size: 20px;
+    text-align: center;
+    resize: none;
+    margin: 10px;
+    float:left;
+}
+
+.t2{
+    width: 26%;
+    height: 25px;
+    font-size: 20px;
+    text-align: center;
+    resize: none;
+    margin: 10px;
+    float: left;
+}
+
+.arrow{
+    text-align: center;
+    float: left;
+    width: 15px;
+    margin: 0;
+    line-height: 45px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#start{
+    background-color: green;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 225px;
+}
+
+body{
+    font-size: 20px;
+}
+
+td{
+    text-align: center;
+    padding: 5px;
+}
+
+.result{
+    font-weight: bold;
+    font-size: 25px;
+    height: 50px;
+}
