@@ -1,0 +1,42 @@
+body{
+    font-size: 20px;
+}
+
+#console{
+    height: 760px;
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    font-size: 15px;
+    resize: none;
+}
+
+#start{
+    width: 200px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+}
+
+#controls{
+    float: left;
+    padding: 10px;
+    width: 40%;
+    height: 700px;
+}
+
+.kf{
+    height: 18px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100px;
+    padding-bottom: 5px;
+    resize: none;
+    text-align: center;
+}
+
+#start{
+   margin-top: 20px;
+}
